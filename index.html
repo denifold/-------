@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nazar Kosyk — Junior Data Analyst</title>
+  <meta name="description" content="Portfolio of Nazar Kosyk: Data Curation Associate, Junior Data Analyst, Computer Science graduate" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: { 50: '#eef2ff', 100: '#e0e7ff', 400: '#818cf8', 500: '#6366f1', 600: '#4f46e5', 700: '#4338ca' }
+          }
+        }
+      }
+    }
+  </script>
+  <!-- Apply the saved theme before first paint to avoid a flash -->
+  <script>
+    try {
+      const saved = localStorage.getItem('theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (saved === 'dark' || (!saved && prefersDark)) document.documentElement.classList.add('dark');
+    } catch (e) {}
+  </script>
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased transition-colors dark:bg-slate-950 dark:text-slate-200">
+
+  <!-- Scroll progress bar -->
+  <div id="progress" class="fixed left-0 top-0 z-[60] h-1 w-0 bg-gradient-to-r from-brand-500 to-fuchsia-500"></div>
+
+  <!-- ========== HEADER ========== -->
+  <header class="fixed inset-x-0 top-0 z-50 border-b border-slate-200/70 bg-white/80 backdrop-blur dark:border-slate-800 dark:bg-slate-950/80">
+    <nav class="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6">
+      <a href="#home" class="text-xl font-extrabold tracking-tight text-slate-900 dark:text-white">
+        nazar<span class="text-brand-600 dark:text-brand-400">.data</span>
+      </a>
+
+      <ul class="hidden items-center gap-7 text-sm font-medium text-slate-600 dark:text-slate-300 lg:flex">
+        <li><a href="#home" class="nav-link">Home</a></li>
+        <li><a href="#experience" class="nav-link">Experience</a></li>
+        <li><a href="#projects" class="nav-link">Projects</a></li>
+        <li><a href="#skills" class="nav-link">Skills</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+
+      <div class="flex items-center gap-2">
+        <button id="theme-btn" aria-label="Toggle theme"
+          class="inline-flex h-10 w-10 items-center justify-center rounded-lg text-slate-700 hover:bg-slate-100 dark:text-slate-200 dark:hover:bg-slate-800">
+          <svg class="hidden h-5 w-5 dark:block" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path stroke-linecap="round" d="M12 2v2m0 16v2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M2 12h2m16 0h2M4.9 19.1l1.4-1.4m11.4-11.4 1.4-1.4"/></svg>
+          <svg class="h-5 w-5 dark:hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+        </button>
+        <a href="#contact" class="hidden rounded-full bg-brand-600 px-5 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-brand-700 sm:inline-block">Get in touch</a>
+        <button id="menu-btn" aria-label="Open menu" aria-expanded="false"
+          class="inline-flex h-10 w-10 items-center justify-center rounded-lg text-slate-700 hover:bg-slate-100 dark:text-slate-200 dark:hover:bg-slate-800 lg:hidden">
+          <svg id="icon-open" class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+          <svg id="icon-close" class="hidden h-6 w-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 6l12 12M18 6L6 18"/></svg>
+        </button>
+      </div>
+    </nav>
+
+    <div id="mobile-menu" class="hidden border-t border-slate-200 bg-white dark:border-slate-800 dark:bg-slate-950 lg:hidden">
+      <ul class="space-y-1 px-4 py-4 text-base font-medium text-slate-700 dark:text-slate-200">
+        <li><a href="#home" class="block rounded-lg px-3 py-2 hover:bg-slate-100 dark:hover:bg-slate-800">Home</a></li>
+        <li><a href="#experience" class="block rounded-lg px-3 py-2 hover:bg-slate-100 dark:hover:bg-slate-800">Experience</a></li>
+        <li><a href="#projects" class="block rounded-lg px-3 py-2 hover:bg-slate-100 dark:hover:bg-slate-800">Projects</a></li>
+        <li><a href="#skills" class="block rounded-lg px-3 py-2 hover:bg-slate-100 dark:hover:bg-slate-800">Skills</a></li>
+        <li><a href="#contact" class="block rounded-lg px-3 py-2 hover:bg-slate-100 dark:hover:bg-slate-800">Contact</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+    <!-- ========== HERO ========== -->
+    <section id="home" class="relative overflow-hidden pt-28 sm:pt-32">
+      <div class="pointer-events-none absolute -top-24 right-0 h-96 w-96 rounded-full bg-brand-100 opacity-70 blur-3xl dark:bg-brand-600/20"></div>
+      <div class="pointer-events-none absolute -left-24 top-64 h-72 w-72 rounded-full bg-fuchsia-100 opacity-70 blur-3xl dark:bg-fuchsia-600/10"></div>
+
+      <div class="relative mx-auto grid max-w-6xl items-center gap-12 px-4 pb-20 sm:px-6 md:grid-cols-2 md:pb-28">
+        <div class="order-2 text-center md:order-1 md:text-left">
+          <span class="inline-block rounded-full bg-brand-50 px-4 py-1 text-sm font-semibold text-brand-700 dark:bg-brand-600/20 dark:text-brand-400">
+            📍 Lviv, Ukraine · currently living in the Czech Republic
+          </span>
+          <h1 class="mt-5 text-4xl font-extrabold leading-tight tracking-tight text-slate-900 dark:text-white sm:text-5xl lg:text-6xl">
+            Hi, I'm <span class="bg-gradient-to-r from-brand-600 to-fuchsia-500 bg-clip-text text-transparent">Nazar</span>
+          </h1>
+          <p class="mt-3 min-h-[2.5rem] text-xl font-semibold text-brand-600 dark:text-brand-400 sm:text-2xl">
+            <span id="typed" class="cursor"></span>
+          </p>
+          <p class="mx-auto mt-5 max-w-xl text-lg text-slate-600 dark:text-slate-400 md:mx-0">
+            Graduate of the Faculty of Computer Science at Lviv Polytechnic National University.
+            Detail-oriented, I cross-reference categories, make sure data is accurate, and dig into
+            root causes to improve data quality and classification.
+          </p>
+          <div class="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center md:justify-start">
+            <a href="#projects" class="w-full rounded-full bg-brand-600 px-8 py-3 text-center font-semibold text-white shadow-lg shadow-brand-600/30 transition hover:-translate-y-0.5 hover:bg-brand-700 sm:w-auto">View my projects</a>
+            <a href="#contact" class="w-full rounded-full border border-slate-300 bg-white px-8 py-3 text-center font-semibold text-slate-700 transition hover:border-brand-500 hover:text-brand-600 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200 dark:hover:border-brand-400 dark:hover:text-brand-400 sm:w-auto">Contact me</a>
+          </div>
+
+          <dl class="mt-12 grid grid-cols-3 gap-4 text-center md:text-left">
+            <div><dd class="text-3xl font-bold text-slate-900 dark:text-white"><span data-count="1.5" data-decimals="1">0</span></dd><dt class="text-sm text-slate-500 dark:text-slate-400">years in tech support</dt></div>
+            <div><dd class="text-3xl font-bold text-slate-900 dark:text-white"><span data-count="3">0</span></dd><dt class="text-sm text-slate-500 dark:text-slate-400">work roles</dt></div>
+            <div><dd class="text-3xl font-bold text-slate-900 dark:text-white"><span data-count="2026" data-nogroup="1">0</span></dd><dt class="text-sm text-slate-500 dark:text-slate-400">graduation year</dt></div>
+          </dl>
+        </div>
+
+        <div class="order-1 flex justify-center md:order-2">
+          <div class="relative">
+            <div class="absolute -inset-3 rotate-3 rounded-3xl bg-gradient-to-br from-brand-500 to-fuchsia-500 opacity-80"></div>
+            <!-- Replace src with the path to your photo, e.g. "photo.jpg" -->
+            <img
+              src="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 480'%3E%3Crect width='400' height='480' fill='%23e0e7ff'/%3E%3Ccircle cx='200' cy='180' r='80' fill='%23818cf8'/%3E%3Cpath d='M50 480c0-110 70-170 150-170s150 60 150 170z' fill='%236366f1'/%3E%3C/svg%3E"
+              alt="Photo of Nazar Kosyk"
+              class="relative h-80 w-72 rounded-3xl object-cover shadow-2xl sm:h-96 sm:w-80 lg:h-[28rem] lg:w-96"
+              width="384" height="448" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== ABOUT ========== -->
+    <section id="about" class="bg-white py-16 dark:bg-slate-900 sm:py-20">
+      <div class="reveal mx-auto max-w-4xl px-4 text-center sm:px-6">
+        <h2 class="text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white sm:text-4xl">About me</h2>
+        <p class="mt-6 text-lg leading-relaxed text-slate-600 dark:text-slate-400">
+          I have 1.5 years of practical experience troubleshooting technical issues: analyzing failures,
+          documenting cases and escalating complex ones through root cause analysis.
+          I completed front-end development courses at Web Skill school (HTML, CSS, JavaScript) and work
+          confidently with Excel and Google Workspace. I'm ready to apply my technical knowledge and data
+          processing skills to improve data quality, classification and search functionality.
+        </p>
+        <div class="mt-8 grid gap-4 text-left sm:grid-cols-3">
+          <div class="rounded-2xl border border-slate-200 p-5 dark:border-slate-800"><p class="text-2xl">🔍</p><h3 class="mt-2 font-bold text-slate-900 dark:text-white">Attention to detail</h3><p class="mt-1 text-sm text-slate-600 dark:text-slate-400">I cross-reference categories and verify data accuracy.</p></div>
+          <div class="rounded-2xl border border-slate-200 p-5 dark:border-slate-800"><p class="text-2xl">🧩</p><h3 class="mt-2 font-bold text-slate-900 dark:text-white">Analytical thinking</h3><p class="mt-1 text-sm text-slate-600 dark:text-slate-400">I look for root causes, not just symptoms.</p></div>
+          <div class="rounded-2xl border border-slate-200 p-5 dark:border-slate-800"><p class="text-2xl">🤝</p><h3 class="mt-2 font-bold text-slate-900 dark:text-white">Customer focus</h3><p class="mt-1 text-sm text-slate-600 dark:text-slate-400">I explain complex issues in simple, actionable terms.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== EXPERIENCE ========== -->
+    <section id="experience" class="py-20 sm:py-24">
+      <div class="mx-auto max-w-4xl px-4 sm:px-6">
+        <div class="reveal text-center">
+          <h2 class="text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white sm:text-4xl">Work experience</h2>
+          <p class="mt-4 text-slate-600 dark:text-slate-400">Click a card to see the details.</p>
+        </div>
+
+        <ol class="relative mt-12 space-y-6 border-l-2 border-brand-100 pl-6 dark:border-slate-800 sm:pl-8">
+
+          <li class="reveal relative">
+            <span class="absolute -left-[2.15rem] top-6 h-4 w-4 rounded-full border-4 border-white bg-brand-600 dark:border-slate-950 sm:-left-[2.65rem]"></span>
+            <div class="exp-card cursor-pointer rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition hover:shadow-lg dark:border-slate-800 dark:bg-slate-900" tabindex="0" role="button" aria-expanded="false">
+              <div class="flex items-start justify-between gap-4">
+                <div>
+                  <p class="text-sm font-semibold text-brand-600 dark:text-brand-400">May 2026 — Present</p>
+                  <h3 class="mt-1 text-lg font-bold text-slate-900 dark:text-white">E-commerce &amp; Data Specialist</h3>
+                  <p class="text-sm text-slate-500 dark:text-slate-400">Strans · Lviv, Ukraine · Sales assistant to the manager</p>
+                </div>
+                <span class="chev mt-1 text-slate-400 transition-transform">▼</span>
+              </div>
+              <ul class="exp-body mt-4 hidden list-disc space-y-1 pl-5 text-sm text-slate-600 dark:text-slate-400">
+                <li>Registered customers in the local CRM and entered their data into Excel.</li>
+                <li>Added and updated products on various marketplaces.</li>
+                <li>Created waybills for Nova Poshta and tracked shipments to make sure orders arrived in good condition.</li>
+              </ul>
+            </div>
+          </li>
+
+          <li class="reveal relative">
+            <span class="absolute -left-[2.15rem] top-6 h-4 w-4 rounded-full border-4 border-white bg-brand-600 dark:border-slate-950 sm:-left-[2.65rem]"></span>
+            <div class="exp-card cursor-pointer rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition hover:shadow-lg dark:border-slate-800 dark:bg-slate-900" tabindex="0" role="button" aria-expanded="false">
+              <div class="flex items-start justify-between gap-4">
+                <div>
+                  <p class="text-sm font-semibold text-brand-600 dark:text-brand-400">March 2024 — December 2025</p>
+                  <h3 class="mt-1 text-lg font-bold text-slate-900 dark:text-white">Technical Support &amp; Retail Consultant</h3>
+                  <p class="text-sm text-slate-500 dark:text-slate-400">Fayne · Lviv, Ukraine · Sales consultant</p>
+                </div>
+                <span class="chev mt-1 text-slate-400 transition-transform">▼</span>
+              </div>
+              <ul class="exp-body mt-4 hidden list-disc space-y-1 pl-5 text-sm text-slate-600 dark:text-slate-400">
+                <li>Ran in-depth diagnostics on iOS and macOS devices, analyzing failed user sessions to identify hardware and software anomalies.</li>
+                <li>Translated complex technical issues into simple, actionable explanations for customers.</li>
+                <li>Documented technical issues in detail and escalated complex cases through internal systems, performing root cause analysis.</li>
+              </ul>
+            </div>
+          </li>
+
+          <li class="reveal relative">
+            <span class="absolute -left-[2.15rem] top-6 h-4 w-4 rounded-full border-4 border-white bg-brand-600 dark:border-slate-950 sm:-left-[2.65rem]"></span>
+            <div class="exp-card cursor-pointer rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition hover:shadow-lg dark:border-slate-800 dark:bg-slate-900" tabindex="0" role="button" aria-expanded="false">
+              <div class="flex items-start justify-between gap-4">
+                <div>
+                  <p class="text-sm font-semibold text-brand-600 dark:text-brand-400">August 2023 — February 2024</p>
+                  <h3 class="mt-1 text-lg font-bold text-slate-900 dark:text-white">Front-end Teacher</h3>
+                  <p class="text-sm text-slate-500 dark:text-slate-400">Web Skill · Lviv, Ukraine</p>
+                </div>
+                <span class="chev mt-1 text-slate-400 transition-transform">▼</span>
+              </div>
+              <ul class="exp-body mt-4 hidden list-disc space-y-1 pl-5 text-sm text-slate-600 dark:text-slate-400">
+                <li>Completed front-end development courses at Web Skill school (HTML, CSS, JavaScript) during the internship.</li>
+                <li>Taught children the basics of HTML, CSS and JavaScript in online and in-person lessons and trial sessions.</li>
+                <li>Communicated with parents, assigned and checked homework.</li>
+                <li>Entered grades and recorded attendance in Excel.</li>
+              </ul>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ========== PROJECTS ========== -->
+    <section id="projects" class="bg-white py-20 dark:bg-slate-900 sm:py-24">
+      <div class="mx-auto max-w-6xl px-4 sm:px-6">
+        <div class="reveal mx-auto max-w-2xl text-center">
+          <h2 class="text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white sm:text-4xl">Projects</h2>
+          <p class="mt-4 text-slate-600 dark:text-slate-400">What I've built and what I learned along the way.</p>
+        </div>
+
+        <div class="reveal mt-8 flex flex-wrap justify-center gap-2" id="filters">
+          <button data-filter="all" class="filter-btn rounded-full bg-brand-600 px-5 py-2 text-sm font-semibold text-white">All</button>
+          <button data-filter="frontend" class="filter-btn rounded-full bg-slate-100 px-5 py-2 text-sm font-semibold text-slate-700 dark:bg-slate-800 dark:text-slate-300">Frontend</button>
+          <button data-filter="data" class="filter-btn rounded-full bg-slate-100 px-5 py-2 text-sm font-semibold text-slate-700 dark:bg-slate-800 dark:text-slate-300">Data</button>
+        </div>
+
+        <div class="mt-10 grid gap-8 md:grid-cols-2 lg:grid-cols-3" id="project-grid">
+
+          <article data-cat="frontend" class="project reveal group overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-xl dark:border-slate-800 dark:bg-slate-950">
+            <div class="flex h-44 items-center justify-center bg-gradient-to-br from-emerald-500 to-yellow-400 text-5xl">🟩🟨⬜</div>
+            <div class="p-6">
+              <h3 class="text-lg font-bold text-slate-900 dark:text-white">Wordle — word-guessing game</h3>
+              <p class="mt-2 text-sm text-slate-600 dark:text-slate-400">A browser-based game built from scratch. Each guessed letter is grey if it's not in the word, yellow if it's in the word but in the wrong place, and green if it's in the correct place.</p>
+              <div class="mt-4 flex flex-wrap gap-2">
+                <span class="rounded-full bg-brand-50 px-3 py-1 text-xs font-medium text-brand-700 dark:bg-brand-600/20 dark:text-brand-400">HTML</span>
+                <span class="rounded-full bg-brand-50 px-3 py-1 text-xs font-medium text-brand-700 dark:bg-brand-600/20 dark:text-brand-400">CSS</span>
+                <span class="rounded-full bg-brand-50 px-3 py-1 text-xs font-medium text-brand-700 dark:bg-brand-600/20 dark:text-brand-400">JavaScript</span>
+                <span class="rounded-full bg-brand-50 px-3 py-1 text-xs font-medium text-brand-700 dark:bg-brand-600/20 dark:text-brand-400">Git</span>
+              </div>
+              <!-- Put the link to your GitHub repository instead of "#" -->
+              <a href="#" target="_blank" rel="noopener" class="mt-5 inline-flex items-center text-sm font-semibold text-brand-600 hover:text-brand-700 dark:text-brand-400">
+                Source on GitHub <span class="ml-1 transition group-hover:translate-x-1">→</span>
+              </a>
+            </div>
+          </article>
+
+          <article data-cat="data" class="project reveal group overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-xl dark:border-slate-800 dark:bg-slate-950">
+            <div class="flex h-44 items-center justify-center bg-gradient-to-br from-indigo-500 to-purple-500 text-5xl">🎓</div>
+            <div class="p-6">
+              <h3 class="text-lg font-bold text-slate-900 dark:text-white">Thesis: educational process management system</h3>
+              <p class="mt-2 text-sm text-slate-600 dark:text-slate-400">Developed and defended a thesis on an educational process management information system, showing strong database structuring and system architecture skills.</p>
+              <div class="mt-4 flex flex-wrap gap-2">
+                <span class="rounded-full bg-brand-50 px-3 py-1 text-xs font-medium text-brand-700 dark:bg-brand-600/20 dark:text-brand-400">Databases</span>
+                <span class="rounded-full bg-brand-50 px-3 py-1 text-xs font-medium text-brand-700 dark:bg-brand-600/20 dark:text-brand-400">System architecture</span>
+              </div>
+              <p class="mt-5 text-sm font-semibold text-slate-500 dark:text-slate-400">Lviv Polytechnic National University · 2026</p>
+            </div>
+          </article>
+
+          <article data-cat="data" class="project reveal group overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-xl dark:border-slate-800 dark:bg-slate-950">
+            <div class="flex h-44 items-center justify-center bg-gradient-to-br from-sky-500 to-teal-500 text-5xl">📦</div>
+            <div class="p-6">
+              <h3 class="text-lg font-bold text-slate-900 dark:text-white">Customer &amp; product records (Strans)</h3>
+              <p class="mt-2 text-sm text-slate-600 dark:text-slate-400">Maintaining the customer base in a CRM and Excel, keeping product listings up to date on marketplaces, creating waybills and tracking deliveries.</p>
+              <div class="mt-4 flex flex-wrap gap-2">
+                <span class="rounded-full bg-brand-50 px-3 py-1 text-xs font-medium text-brand-700 dark:bg-brand-600/20 dark:text-brand-400">Excel</span>
+                <span class="rounded-full bg-brand-50 px-3 py-1 text-xs font-medium text-brand-700 dark:bg-brand-600/20 dark:text-brand-400">CRM</span>
+                <span class="rounded-full bg-brand-50 px-3 py-1 text-xs font-medium text-brand-700 dark:bg-brand-600/20 dark:text-brand-400">Data quality</span>
+              </div>
+              <p class="mt-5 text-sm font-semibold text-slate-500 dark:text-slate-400">Work project · 2026</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== SKILLS ========== -->
+    <section id="skills" class="py-20 sm:py-24">
+      <div class="mx-auto max-w-6xl px-4 sm:px-6">
+        <div class="reveal mx-auto max-w-2xl text-center">
+          <h2 class="text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white sm:text-4xl">Skills &amp; education</h2>
+        </div>
+
+        <div class="mt-12 grid gap-6 lg:grid-cols-3">
+          <div class="reveal rounded-2xl border border-slate-200 bg-white p-6 dark:border-slate-800 dark:bg-slate-900">
+            <h3 class="font-bold text-slate-900 dark:text-white">⚙️ Hard skills</h3>
+            <div class="mt-4 flex flex-wrap gap-2 text-sm">
+              <span class="rounded-full bg-brand-50 px-3 py-1 font-medium text-brand-700 dark:bg-brand-600/20 dark:text-brand-400">Database Logic</span>
+              <span class="rounded-full bg-brand-50 px-3 py-1 font-medium text-brand-700 dark:bg-brand-600/20 dark:text-brand-400">MS Excel</span>
+              <span class="rounded-full bg-brand-50 px-3 py-1 font-medium text-brand-700 dark:bg-brand-600/20 dark:text-brand-400">Google Workspace</span>
+              <span class="rounded-full bg-brand-50 px-3 py-1 font-medium text-brand-700 dark:bg-brand-600/20 dark:text-brand-400">HTML / CSS / JS (basic)</span>
+              <span class="rounded-full bg-brand-50 px-3 py-1 font-medium text-brand-700 dark:bg-brand-600/20 dark:text-brand-400">Technical Diagnostics</span>
+              <span class="rounded-full bg-brand-50 px-3 py-1 font-medium text-brand-700 dark:bg-brand-600/20 dark:text-brand-400">Git &amp; GitHub</span>
+              <span class="rounded-full bg-brand-50 px-3 py-1 font-medium text-brand-700 dark:bg-brand-600/20 dark:text-brand-400">Basic React</span>
+            </div>
+          </div>
+
+          <div class="reveal rounded-2xl border border-slate-200 bg-white p-6 dark:border-slate-800 dark:bg-slate-900">
+            <h3 class="font-bold text-slate-900 dark:text-white">💬 Soft skills &amp; languages</h3>
+            <div class="mt-4 flex flex-wrap gap-2 text-sm">
+              <span class="rounded-full bg-emerald-50 px-3 py-1 font-medium text-emerald-700 dark:bg-emerald-500/15 dark:text-emerald-400">High attention to detail</span>
+              <span class="rounded-full bg-emerald-50 px-3 py-1 font-medium text-emerald-700 dark:bg-emerald-500/15 dark:text-emerald-400">Analytical thinking</span>
+              <span class="rounded-full bg-emerald-50 px-3 py-1 font-medium text-emerald-700 dark:bg-emerald-500/15 dark:text-emerald-400">Customer focus</span>
+              <span class="rounded-full bg-emerald-50 px-3 py-1 font-medium text-emerald-700 dark:bg-emerald-500/15 dark:text-emerald-400">Problem-solving</span>
+            </div>
+            <ul class="mt-5 space-y-1 text-sm text-slate-600 dark:text-slate-400">
+              <li>🇺🇦 Ukrainian — native</li>
+              <li>🇬🇧 English — Intermediate (B1)</li>
+              <li>🇨🇿 Living in the Czech Republic and actively studying the language</li>
+            </ul>
+          </div>
+
+          <div class="reveal rounded-2xl border border-slate-200 bg-white p-6 dark:border-slate-800 dark:bg-slate-900">
+            <h3 class="font-bold text-slate-900 dark:text-white">🎓 Education &amp; courses</h3>
+            <div class="mt-4 space-y-4 text-sm">
+              <div>
+                <p class="font-semibold text-slate-900 dark:text-white">Bachelor of Computer Science</p>
+                <p class="text-slate-600 dark:text-slate-400">Lviv Polytechnic National University · 2026</p>
+              </div>
+              <div>
+                <p class="font-semibold text-slate-900 dark:text-white">Front-end Development Course</p>
+                <p class="text-slate-600 dark:text-slate-400">Web Skill school · 2023</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== CONTACT ========== -->
+    <section id="contact" class="bg-white py-20 dark:bg-slate-900 sm:py-24">
+      <div class="mx-auto max-w-6xl px-4 sm:px-6">
+        <div class="grid gap-12 lg:grid-cols-2">
+          <div class="reveal">
+            <h2 class="text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white sm:text-4xl">Let's get in touch</h2>
+            <p class="mt-4 max-w-md text-slate-600 dark:text-slate-400">
+              I'm looking for a role in data curation, data analysis or technical support. Send me a message — I'll get back to you as soon as possible.
+            </p>
+            <ul class="mt-8 space-y-4 text-slate-700 dark:text-slate-300">
+              <li class="flex items-center gap-3">
+                <span class="flex h-10 w-10 items-center justify-center rounded-full bg-brand-50 dark:bg-brand-600/20">✉️</span>
+                <a href="mailto:nazar.kosux@ukr.net" class="hover:text-brand-600 dark:hover:text-brand-400">nazar.kosux@ukr.net</a>
+              </li>
+              <li class="flex items-center gap-3">
+                <span class="flex h-10 w-10 items-center justify-center rounded-full bg-brand-50 dark:bg-brand-600/20">📞</span>
+                <span><a href="tel:+380964501961" class="hover:text-brand-600 dark:hover:text-brand-400">+380 964 501 961</a> · <a href="tel:+420723954743" class="hover:text-brand-600 dark:hover:text-brand-400">+420 723 954 743</a></span>
+              </li>
+              <li class="flex items-center gap-3">
+                <span class="flex h-10 w-10 items-center justify-center rounded-full bg-brand-50 dark:bg-brand-600/20">💼</span>
+                <!-- Put the link to your LinkedIn profile instead of "#" -->
+                <a href="#" target="_blank" rel="noopener" class="hover:text-brand-600 dark:hover:text-brand-400">LinkedIn</a>
+              </li>
+              <li class="flex items-center gap-3">
+                <span class="flex h-10 w-10 items-center justify-center rounded-full bg-brand-50 dark:bg-brand-600/20">📍</span>
+                <span>Brno, Czech Republic</span>
+              </li>
+            </ul>
+            <button id="copy-email" type="button" class="mt-8 rounded-full border border-slate-300 px-5 py-2 text-sm font-semibold text-slate-700 transition hover:border-brand-500 hover:text-brand-600 dark:border-slate-700 dark:text-slate-200 dark:hover:border-brand-400 dark:hover:text-brand-400">
+              📋 Copy email
+            </button>
+          </div>
+
+          <form id="contact-form" class="reveal space-y-5 rounded-2xl border border-slate-200 bg-slate-50 p-6 shadow-sm dark:border-slate-800 dark:bg-slate-950 sm:p-8" novalidate>
+            <div>
+              <label for="name" class="mb-1 block text-sm font-medium">Name</label>
+              <input id="name" name="name" type="text" required placeholder="Your name"
+                class="w-full rounded-lg border border-slate-300 bg-white px-4 py-3 outline-none transition focus:border-brand-500 focus:ring-2 focus:ring-brand-500/30 dark:border-slate-700 dark:bg-slate-900" />
+            </div>
+            <div>
+              <label for="email" class="mb-1 block text-sm font-medium">Email</label>
+              <input id="email" name="email" type="email" required placeholder="you@example.com"
+                class="w-full rounded-lg border border-slate-300 bg-white px-4 py-3 outline-none transition focus:border-brand-500 focus:ring-2 focus:ring-brand-500/30 dark:border-slate-700 dark:bg-slate-900" />
+            </div>
+            <div>
+              <label for="message" class="mb-1 flex justify-between text-sm font-medium"><span>Message</span><span id="counter" class="text-slate-400">0 / 500</span></label>
+              <textarea id="message" name="message" rows="5" maxlength="500" required placeholder="Tell me about the position or project..."
+                class="w-full resize-none rounded-lg border border-slate-300 bg-white px-4 py-3 outline-none transition focus:border-brand-500 focus:ring-2 focus:ring-brand-500/30 dark:border-slate-700 dark:bg-slate-900"></textarea>
+            </div>
+            <p id="form-status" class="hidden text-sm font-medium" role="status"></p>
+            <button type="submit" class="w-full rounded-lg bg-brand-600 px-6 py-3 font-semibold text-white shadow-lg shadow-brand-600/30 transition hover:bg-brand-700">
+              Send message
+            </button>
+            <p class="text-center text-xs text-slate-400">Your email app will open with a ready-to-send message.</p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-slate-200 bg-slate-50 dark:border-slate-800 dark:bg-slate-950">
+    <div class="mx-auto flex max-w-6xl flex-col items-center justify-between gap-2 px-4 py-6 text-sm text-slate-500 sm:flex-row sm:px-6">
+      <p>© <span id="year"></span> Nazar Kosyk. All rights reserved.</p>
+      <a href="#home" class="hover:text-brand-600">Back to top ↑</a>
+    </div>
+  </footer>
+
+  <button id="to-top" aria-label="Back to top"
+    class="fixed bottom-6 right-6 z-40 hidden h-12 w-12 items-center justify-center rounded-full bg-brand-600 text-white shadow-lg transition hover:bg-brand-700">↑</button>
+
+</body>
+</html>
